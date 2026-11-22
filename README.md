@@ -1,59 +1,127 @@
-# The Supermarket Receipt Refactoring Kata
+# SCD Group 7 — Supermarket Receipt Refactoring
 
-The supermarket has a catalog with different types of products (rice, apples, milk, toothbrushes,...). Each product has a price, and the total price of the shopping cart is the total of all the prices of the items. You get a receipt that details the items you've bought, the total price and any discounts that were applied.
+## Project Overview
 
-The supermarket runs special deals, e.g.
- - Buy two toothbrushes, get one free. Normal toothbrush price is €0.99
- - 20% discount on apples, normal price €1.99 per kilo.
- - 10% discount on rice, normal price €2.49 per bag
- - Five tubes of toothpaste for €7.49, normal price €1.79
- - Two boxes of cherry tomatoes for €0.99, normal price €0.69 per box.
+This project focuses on refactoring a legacy Supermarket Receipt application as part of the Software Construction and Development (SCD) course at Khwaja Fareed University of Engineering and Information Technology (KFUEIT).
 
-These are just examples: the actual special deals change each week.
+The application calculates shopping cart prices, generates customer receipts, and handles different types of special offers and discounts.
 
-## New feature: special deals database
+The primary objective of this assignment is to improve the internal software design by identifying code smells, eliminating duplicated pricing logic, and extracting pricing rules while preserving the application's existing external behavior.
 
-Business intelligence wants to optimize our special deals to improve revenue.
-At the moment they are based on long years of experience and are pretty much
-hard coded. They want to organize the offers in a database.
-Our sysadmin will take care of the database but you should prepare the codebase
-for the change coming so we can connect the systems once the database goes online.
+## Refactoring Focus
 
-## New feature: HTML receipt
+**Duplicated Pricing Logic — Extract Pricing Rules**
 
-Currently we print a traditional ticket receipt. Now being a modern business we'd
-like to be able to print or send a HTML version of the same receipt. All the data
-and number formatting should be the same. However the layout should be html.
-You don't have to worry about the HTML template - a designer will care of that - but
-we do need someone to keep duplication between the reports to a bare minimum.
+The project focuses on:
 
-## New feature: discounted bundles
+- Identifying duplicated pricing calculations.
+- Separating pricing rules from shopping cart responsibilities.
+- Improving code readability and maintainability.
+- Applying appropriate object-oriented design principles.
+- Preserving existing behavior through characterization tests.
+- Managing changes through Git branches, commits, and Pull Requests.
 
-The owner of the system has a new feature request. They want to introduce a new kind of special offer - bundles. When you buy all the items in a product bundle
-you get 10% off the total for those items. For example you could make a bundle offer of one toothbrush and one toothpaste. If you then you buy one toothbrush and one toothpaste, the discount will be 10% of €0.99 + €1.79. If you instead buy two toothbrushes and one toothpaste, you get the same discount as if you'd bought only one of each - ie only complete bundles are discounted.
+## Technologies Used
 
+- Python
+- Pytest
+- Git
+- GitHub
+- Object-Oriented Programming
+- UML Class Diagrams
 
-## Available Programming Languages
+## Project Structure
 
-To avoid setup issues as much as possible, we tried to check the stater code
-for the provided languages.
+```text
+SCD-Group-7-Refactoring/
+│
+├── python_pytest/
+│   ├── src/
+│   ├── tests/
+│   ├── requirements.txt
+│   ├── pytest.ini
+│   └── README.md
+│
+├── docs/
+│   ├── baseline-analysis.md
+│   └── design-model.png
+│
+└── README.md
+```
 
-| Language   | Status             |
-|------------|--------------------|
-| c          | ✅                 |
-| cpp        | ✅                 |
-| csharp-ms  | 🤷                 |
-| csharp     | ✅                 |
-| go         | ✅                 |
-| java       | ✅                 |
-| kotlin     | ✅                 |
-| php        | ✅ (for PHP 8.0)   |
-| python     | ✅                 |
-| ruby       | ✅ (for Ruby 2.7 ) |
-| swift      | ✅                 |
-| typescript | ✅                 |
+## Installation and Execution
 
----
+### Requirements
 
-This fork is a slightly modified version of the original Kata from Emily Bache.
-The introduced changes reflect the requirements of the [GDCR22](https://swkwien.github.io/gdcr22/).
+- Python 3.x
+- pip
+
+### Setup
+
+Navigate to the Python project directory:
+
+```bash
+cd python_pytest
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate it using Git Bash:
+
+```bash
+source venv/Scripts/activate
+```
+
+Install dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### Run Tests
+
+Execute the test suite:
+
+```bash
+pytest -v
+```
+
+## Group Members
+
+| No. | Name | Roll Number | Role |
+|---|---|---|---|
+| 1 | Asim Juna | SWEN241101098 | Group Leader |
+| 2 | Tehreem Fatima | SWEN241101097 | Member |
+| 3 | Amna Khalid | SWEN241101054 | Member |
+| 4 | Mahnoor Hassan | SWEN241101073 | Member |
+| 5 | Bisma | SWEN241101085 | Member |
+
+## Repository Management
+
+The project follows a Git-based collaborative development workflow.
+
+- `main`: Stable release branch.
+- `develop`: Integration and development branch.
+- `feature/*` and `refactor/*`: Individual development branches.
+
+Refactoring changes are developed separately and integrated into the `develop` branch through Pull Requests. The final verified version is merged into `main`.
+
+## Changelog
+
+### Unreleased
+
+- Initial Python implementation added to the Group 7 repository.
+- Baseline test execution verified.
+- Refactoring activities are in progress.
+
+## Academic Information
+
+**Course:** Software Construction and Development (SCD)  
+**Group:** 7  
+**University:** Khwaja Fareed University of Engineering and Information Technology (KFUEIT)
+
+**Repository:** https://github.com/AsimJuna/SCD-Group-7-Refactoring
